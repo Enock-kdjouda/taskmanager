@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('base')
 
 @section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -30,8 +30,8 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
     </div>
 
     <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning">Modifier</a>
-
-    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+    <a href="{{ route('tasks.index') }}" class="btn btn-secondary">Retour à la liste</a>
+    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Supprimer la tâche</button>
